@@ -472,10 +472,10 @@ jobs:
           -DCMAKE_BUILD_TYPE=Debug
           -DDS_FOUND=ON
           -DHAS_FRONT_PANEL=ON
-          -DRDK_SERVICES_L1_TEST= ${{env.RDK_SERVICES_L1_TEST}}
+          -DRDK_SERVICES_L1_TEST=${{env.RDK_SERVICES_L1_TEST}}
           -DUSE_THUNDER_R4=ON
           -DHIDE_NON_EXTERNAL_SYMBOLS=OFF
-          -DPLUGIN_PERSISTENTSTORE=ON
+          -DPLUGIN_PERSISTENTSTORE=OFF
           -DENABLE_UNIT_TESTS=ON
           &&
           cmake --build build/entservices-persistentstore -j8
@@ -546,7 +546,7 @@ jobs:
           -DCMAKE_DISABLE_FIND_PACKAGE_RBus=ON
           -DCMAKE_BUILD_TYPE=Debug
           -DDS_FOUND=ON
-          -DPLUGIN_PERSISTENTSTORE=ON
+          -DPLUGIN_PERSISTENTSTORE=OFF
           -DRDK_SERVICES_L1_TEST=${{env.RDK_SERVICES_L1_TEST}}
           -DUSE_THUNDER_R4=ON
           -DHIDE_NON_EXTERNAL_SYMBOLS=OFF
