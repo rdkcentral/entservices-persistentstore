@@ -101,6 +101,10 @@ cd $GITHUB_WORKSPACE
 cd entservices-testframework/Tests
 echo " Empty mocks creation to avoid compilation errors"
 echo "======================================================================================"
+mkdir -p headers
+mkdir -p headers/Dobby
+mkdir -p headers/Dobby/Public/Dobby
+mkdir -p headers/Dobby/IpcService
 mkdir -p headers/rdk/iarmbus
 mkdir -p headers/rdk/iarmmgrs-hal
 echo "dir created successfully"
@@ -109,6 +113,10 @@ echo "==========================================================================
 echo "======================================================================================"
 echo "empty headers creation"
 cd headers
+touch Dobby/DobbyProtocol.h
+touch Dobby/DobbyProxy.h
+touch Dobby/Public/Dobby/IDobbyProxy.h
+touch Dobby/IpcService/IpcFactory.h
 touch rdk/iarmbus/libIARM.h
 touch rdk/iarmbus/libIBus.h
 touch rdk/iarmbus/libIBusDaemon.h
