@@ -17,8 +17,7 @@ env:
   INTERFACES_REF: "develop"
   AUTOMATICS_UNAME: ${{ secrets.AUTOMATICS_UNAME}}
   AUTOMATICS_PASSCODE: ${{ secrets. AUTOMATICS_PASSCODE}}
-  RDK_SERVICE_L2_TEST: "OFF"
-
+  
 jobs:
   L2-tests:
     name: Build and run L2 tests
@@ -399,7 +398,7 @@ jobs:
           -DPLUGIN_PERSISTENTSTORE=OFF
           -DUSE_THUNDER_R4=ON
           -DPLUGIN_L2Tests=ON
-          -DRDK_SERVICE_L2_TEST=${{env.RDK_SERVICE_L2_TEST}}
+          -DRDK_SERVICE_L2_TEST=ON
           -DDS_FOUND=ON
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
           &&
@@ -471,7 +470,7 @@ jobs:
           -DPLUGIN_PERSISTENTSTORE=OFF
           -DUSE_THUNDER_R4=ON
           -DPLUGIN_L2Tests=ON
-          -DRDK_SERVICE_L2_TEST=${{env.RDK_SERVICE_L2_TEST}}
+          -DRDK_SERVICE_L2_TEST=ON
           -DDS_FOUND=ON
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
           &&
@@ -578,7 +577,7 @@ jobs:
           $GITHUB_WORKSPACE/entservices-testframework/Tests/L2Tests/pact/install-verifier-cli.sh
 
       - name: Run unit tests without valgrind
-        if: ${{!env.ACT && env.RDK_SERVICE_L2_TEST == 'ON' && inputs.caller_source != 'testframework'  }}
+        if: ${{!env.ACT && inputs.caller_source != 'testframework' }}
         run: >
           PATH=$GITHUB_WORKSPACE/install/usr/bin:${PATH}
           LD_LIBRARY_PATH=$GITHUB_WORKSPACE/install/usr/lib:$GITHUB_WORKSPACE/install/usr/lib/wpeframework/plugins:${LD_LIBRARY_PATH}
@@ -587,7 +586,7 @@ jobs:
           rm -rf $(pwd)/rdkL2TestResults.json
 
       - name: Run unit tests with valgrind
-        if: ${{ !env.ACT && env.RDK_SERVICE_L2_TEST == 'ON'}}
+        if: ${{ !env.ACT }}
         run: >
           PATH=$GITHUB_WORKSPACE/install/usr/bin:${PATH}
           LD_LIBRARY_PATH=$GITHUB_WORKSPACE/install/usr/lib:$GITHUB_WORKSPACE/install/usr/lib/wpeframework/plugins:${LD_LIBRARY_PATH}
@@ -603,7 +602,7 @@ jobs:
           rm -rf $(pwd)/rdkL2TestResults.json
 
       - name: Generate coverage
-        if: ${{ matrix.coverage == 'with-coverage' && !env.ACT && env.RDK_SERVICE_L2_TEST == 'ON' && inputs.caller_source != 'testframework'}}
+        if: ${{ matrix.coverage == 'with-coverage' && !env.ACT && inputs.caller_source != 'testframework'}}
         run: >
           cp $GITHUB_WORKSPACE/entservices-testframework/Tests/L2Tests/.lcovrc_l2 ~/.lcovrc
           &&
@@ -633,7 +632,7 @@ jobs:
           filtered_coverage.info
 
       - name: Upload artifacts
-        if: ${{ !env.ACT && env.RDK_SERVICE_L2_TEST == 'ON' }}
+        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v4
         with:
           name: artifacts-L2-persistentstore
