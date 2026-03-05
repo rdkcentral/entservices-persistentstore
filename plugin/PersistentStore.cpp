@@ -19,6 +19,7 @@
 
 #include "PersistentStore.h"
 #include <fstream>
+#include <stdio.h>
 
 #define API_VERSION_NUMBER_MAJOR 2
 #define API_VERSION_NUMBER_MINOR 0
@@ -104,7 +105,7 @@ namespace Plugin {
         } else {
             result = _T("Couldn't create implementation instance");
         }
-
+        printf("PersistentStore::test coverity workflow: %s\n");
         return result;
     }
 

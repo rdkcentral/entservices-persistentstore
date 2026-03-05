@@ -45,6 +45,7 @@ target_link_libraries(${MODULE_NAME} PRIVATE
         ${NAMESPACE}Definitions::${NAMESPACE}Definitions
 )
 
+target_compile_options(${MODULE_NAME} PRIVATE -Wno-error=format) 
 install(TARGETS ${MODULE_NAME}
         DESTINATION lib/${STORAGE_DIRECTORY}/plugins)
 
@@ -62,6 +63,7 @@ target_link_libraries(${PLUGIN_IMPLEMENTATION} PRIVATE
 find_package(PkgConfig REQUIRED)
 pkg_search_module(SQLITE REQUIRED sqlite3)
 target_link_libraries(${PLUGIN_IMPLEMENTATION} PRIVATE ${SQLITE_LIBRARIES})
+target_compile_options(${PLUGIN_IMPLEMENTATION} PRIVATE -Wno-error=format) 
 
 find_library(IARMBUS_LIBRARIES NAMES IARMBus)
 if (IARMBUS_LIBRARIES)
