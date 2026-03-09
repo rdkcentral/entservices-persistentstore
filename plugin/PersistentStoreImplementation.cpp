@@ -20,6 +20,7 @@
 #include "PersistentStoreImplementation.h"
 #include "sqlite/Store2.h"
 
+
 namespace WPEFramework {
 namespace Plugin {
 
