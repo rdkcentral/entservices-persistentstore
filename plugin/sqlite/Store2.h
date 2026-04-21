@@ -283,7 +283,9 @@ namespace Plugin {
             }
             uint32_t SetValue(const IStore2::ScopeType scope, const string& ns, const string& key, const string& value, const uint32_t ttl) override
             {
+                LOGINFO("Aishwarya Entered set value");
                 ASSERT(scope == IStore2::ScopeType::DEVICE);
+                LOGINFO("Aishwarya Entered set value2");
 
                 uint32_t result;
 
@@ -292,7 +294,9 @@ namespace Plugin {
                         return Core::ERROR_PENDING_CONDITIONS;
                     }
                 }
+                LOGINFO("Aishwarya entering the pointer sqlite3");
                 sqlite3_stmt* stmt;
+                LOGINFO("Aishwarya Entered sqlite3_stmt ");
                 sqlite3_prepare_v2(_data, "insert or ignore into namespace (name) values (?);",
                     -1, &stmt, nullptr);
                 sqlite3_bind_text(stmt, 1, ns.c_str(), -1, SQLITE_TRANSIENT);
@@ -335,13 +339,17 @@ namespace Plugin {
             }
             uint32_t GetValue(const IStore2::ScopeType scope, const string& ns, const string& key, string& value, uint32_t& ttl) override
             {
+                LOGINFO("Aishwarya Entered get value");
                 ASSERT(scope == IStore2::ScopeType::DEVICE);
+                LOGINFO("Aishwarya Entered set value2");
 
                 uint32_t result;
 
                 string k, v;
                 int64_t t = 0;
+                LOGINFO("Aishwarya entering the pointer sqlite3");
                 sqlite3_stmt* stmt;
+                LOGINFO("Aishwarya Entered sqlite3_stmt ");
                 sqlite3_prepare_v2(_data, "select key, value, ttl"
                                           " from namespace"
                                           " left join item on (namespace.id = item.ns and key = ?)"
