@@ -146,14 +146,18 @@ namespace Plugin {
         }
         uint32_t SetValue(const IStore2::ScopeType, const string& ns, const string& key, const string& value, const uint32_t ttl) override
         {
+            LOGINFO("Aishwarya entering SetValue(implementation)");
             if (_deviceStore2 != nullptr) {
+                LOGINFO("Aishwarya inside  _deviceStore2 != nullptr");
                 return _deviceStore2->SetValue(IStore2::ScopeType::DEVICE, ns, key, value, ttl);
             }
             return Core::ERROR_NOT_SUPPORTED;
         }
         uint32_t GetValue(const IStore2::ScopeType, const string& ns, const string& key, string& value, uint32_t& ttl) override
         {
+             LOGINFO("Aishwarya entering getValue(implementation)");
             if (_deviceStore2 != nullptr) {
+                 LOGINFO("Aishwarya inside get  _deviceStore2 != nullptr");
                 return _deviceStore2->GetValue(IStore2::ScopeType::DEVICE, ns, key, value, ttl);
             }
             return Core::ERROR_NOT_SUPPORTED;
