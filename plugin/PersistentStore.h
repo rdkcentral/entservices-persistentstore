@@ -143,10 +143,12 @@ namespace Plugin {
             , _store2Sink(*this)
             , _notification(*this)
         {
+            SYSLOG(Logging::Startup, (_T("%s"), __FUNCTION__));
             RegisterAll();
         }
         ~PersistentStore() override
         {
+            SYSLOG(Logging::Shutdown, (_T("%s"), __FUNCTION__));
             UnregisterAll();
         }
 

@@ -119,19 +119,27 @@ namespace Plugin {
         if (_store != nullptr) {
             if (_store2 != nullptr) {
                 _store2->Unregister(&_store2Sink);
-                _store2->Release();
+                auto result = _store2->Release();
+                SYSLOG(Logging::Shutdown,
+                    (_T("%s %" PRIu32), __FUNCTION__, result));
                 _store2 = nullptr;
             }
             if (_storeCache != nullptr) {
-                _storeCache->Release();
+                auto result = _storeCache->Release();
+                SYSLOG(Logging::Shutdown,
+                    (_T("%s %" PRIu32), __FUNCTION__, result));
                 _storeCache = nullptr;
             }
             if (_storeInspector != nullptr) {
-                _storeInspector->Release();
+                auto result = _storeInspector->Release();
+                SYSLOG(Logging::Shutdown,
+                    (_T("%s %" PRIu32), __FUNCTION__, result));
                 _storeInspector = nullptr;
             }
             if (_storeLimit != nullptr) {
-                _storeLimit->Release();
+                auto result = _storeLimit->Release();
+                SYSLOG(Logging::Shutdown,
+                    (_T("%s %" PRIu32), __FUNCTION__, result));
                 _storeLimit = nullptr;
             }
 
