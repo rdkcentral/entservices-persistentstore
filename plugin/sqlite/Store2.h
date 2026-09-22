@@ -28,7 +28,7 @@
 #include <sysMgr.h>
 #endif
 
-namespace WPEFramework {
+namespace Thunder {
 namespace Plugin {
     namespace Sqlite {
 
@@ -655,4 +655,4 @@ namespace Plugin {
 
     } // namespace Sqlite
 } // namespace Plugin
-} // namespace WPEFramework
+} // namespace Thunder

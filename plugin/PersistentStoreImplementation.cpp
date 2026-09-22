@@ -20,7 +20,7 @@
 #include "PersistentStoreImplementation.h"
 #include "sqlite/Store2.h"
 
-namespace WPEFramework {
+namespace Thunder {
 namespace Plugin {
 
     SERVICE_REGISTRATION(PersistentStoreImplementation, 1, 0);
@@ -67,4 +67,4 @@ namespace Plugin {
     }
 
 } // namespace Plugin
-} // namespace WPEFramework
+} // namespace Thunder

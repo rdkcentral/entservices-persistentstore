@@ -2,7 +2,7 @@
 
 ## Overview
 
-The PersistentStore plugin is a WPEFramework (Thunder) plugin that provides a persistent key-value storage service for RDK devices. It enables applications and services to store, retrieve, and manage configuration data and application state that persists across device reboots and power cycles. The plugin implements a secure, reliable, and efficient storage mechanism using SQLite as the underlying database engine.
+The PersistentStore plugin is a Thunder plugin that provides a persistent key-value storage service for RDK devices. It enables applications and services to store, retrieve, and manage configuration data and application state that persists across device reboots and power cycles. The plugin implements a secure, reliable, and efficient storage mechanism using SQLite as the underlying database engine.
 
 ## System Architecture
 
@@ -10,7 +10,7 @@ The PersistentStore plugin is a WPEFramework (Thunder) plugin that provides a pe
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│              WPEFramework (Thunder)                      │
+│                    Thunder                      │
 │                 Plugin Host                              │
 └─────────────────────┬───────────────────────────────────┘
                       │
@@ -125,7 +125,7 @@ The PersistentStore plugin is a WPEFramework (Thunder) plugin that provides a pe
 
 ## Dependencies
 
-- **WPEFramework (Thunder)**: Plugin framework and service infrastructure
+- **Thunder**: Plugin framework and service infrastructure
 - **SQLite3**: Database engine for persistent storage
 - **IARMBus** (optional): Inter-process communication for system events
 - **System Libraries**: C++11 standard library, POSIX APIs

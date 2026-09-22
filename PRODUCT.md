@@ -83,7 +83,7 @@ C++ applications can directly use Thunder interfaces:
 - **Namespace Isolation**: Prevent conflicts between components
 
 ### Platform Integration
-- **Thunder Native**: First-class WPEFramework plugin
+- **Thunder Native**: First-class Thunder plugin
 - **IARM Compatible**: Optional integration with legacy IARM bus systems
 - **Containerized Support**: Works in isolated environments
 - **Cross-Platform**: Portable across RDK device variants

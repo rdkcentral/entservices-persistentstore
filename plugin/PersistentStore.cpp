@@ -24,7 +24,7 @@
 #define API_VERSION_NUMBER_MINOR 0
 #define API_VERSION_NUMBER_PATCH 6
 
-namespace WPEFramework {
+namespace Thunder {
 
 namespace Plugin {
 
@@ -157,4 +157,4 @@ namespace Plugin {
     }
 
 } // namespace Plugin
-} // namespace WPEFramework
+} // namespace Thunder

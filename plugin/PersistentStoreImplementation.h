@@ -24,7 +24,7 @@
 #include <interfaces/IStore2.h>
 #include <interfaces/IStoreCache.h>
 
-namespace WPEFramework {
+namespace Thunder {
 namespace Plugin {
 
     class PersistentStoreImplementation : public Exchange::IStore,
@@ -226,4 +226,4 @@ namespace Plugin {
     };
 
 } // namespace Plugin
-} // namespace WPEFramework
+} // namespace Thunder

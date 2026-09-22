@@ -29,7 +29,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-find_package(WPEFramework NAMES WPEFramework Thunder)
+find_package(Thunder)
 find_package(${NAMESPACE}Plugins REQUIRED)
 
 add_executable(${PROJECT_NAME}
