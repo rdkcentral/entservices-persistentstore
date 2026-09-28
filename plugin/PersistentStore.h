@@ -190,7 +190,8 @@ namespace Plugin {
         Config _config;
         PluginHost::IShell* _service;
         uint32_t _connectionId;
-        Exchange::IStore2* _store2;
+        Exchange::IStore* _store;
+	Exchange::IStore2* _store2;
         Exchange::IStoreCache* _storeCache;
         Exchange::IStoreInspector* _storeInspector;
         Exchange::IStoreLimit* _storeLimit;
